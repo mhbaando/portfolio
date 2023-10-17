@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Mohamud Abshir",
+  title: "Mohamud Abshir | Portfolio",
+  description: "Mohamud Abshir Portfolio | mhbaando",
 };
 
 export default function RootLayout({
@@ -22,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={cn("min-h-screen antialiased grainy", poppins.className)}
+        className={cn(
+          "min-h-screen antialiased grainy bg-black",
+          poppins.className
+        )}
       >
         <Navbar />
         {children}

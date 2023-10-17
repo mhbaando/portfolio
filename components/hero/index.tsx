@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
-import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -9,10 +9,9 @@ const Hero = () => {
         I&apos;m <span className={cn("text-white")}>Mohamud</span>
         <br /> A <span className={cn("text-white")}>full stack</span> developer
       </h1>
-
       <p
         className={cn(
-          "text-zinc-400 max-w-[500px] mx-auto text-center mt-4 mb-9"
+          "text-zinc-400 max-w-[500px] mx-auto text-center mt-4 mb-9 leading-loose"
         )}
       >
         A talented <span className="text-white">developer</span> &{" "}
@@ -22,7 +21,6 @@ const Hero = () => {
         <span className="text-white">Python</span>, crafting innovative
         solutions for clients worldwide
       </p>
-
       <Link
         href="#"
         className={cn(

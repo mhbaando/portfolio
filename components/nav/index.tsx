@@ -5,7 +5,7 @@ import Wrapper from "../wrapper";
 const Navbar = () => {
   return (
     <nav className="mt-10">
-      <Wrapper className="px-5 md:px-0">
+      <Wrapper>
         <div className="w-full flex items-center justify-between">
           <div>
             <h2 className="text-white font-medium">MhBaando</h2>

@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import Wrapper from "../wrapper";
 
 const Navbar = () => {
@@ -11,9 +11,9 @@ const Navbar = () => {
             <h2 className="text-white font-medium">MhBaando</h2>
           </div>
           <div>
-            <Button variant="default" className={cn("rounded-full")}>
+            <a href="#connect" className={cn(buttonVariants(), "rounded-full")}>
               Let&apos; Connect
-            </Button>
+            </a>
           </div>
         </div>
       </Wrapper>

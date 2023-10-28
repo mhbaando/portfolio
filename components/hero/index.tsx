@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 
@@ -21,15 +20,15 @@ const Hero = () => {
         <span className="text-white">Python</span>, crafting innovative
         solutions for clients worldwide
       </p>
-      <Link
-        href="#"
+      <a
+        href="#connect"
         className={cn(
           buttonVariants(),
           "rounded-full bg-secondary text-white hover:text-black transition-all duration-300 px-7"
         )}
       >
         Let&apos;s Build
-      </Link>
+      </a>
     </div>
   );
 };

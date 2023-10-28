@@ -38,7 +38,7 @@ const TitleOrDescription = ({
   ));
 
   return type === "heading" ? (
-    <h2 className={cn("font-medium", className)}>{coloredWords}</h2>
+    <h2 className={cn("font-medium leading-relaxed", className)}>{coloredWords}</h2>
   ) : (
     <p className={cn("leading-loose", className)}>{coloredWords}</p>
   );

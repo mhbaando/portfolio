@@ -39,7 +39,7 @@ export const startUp: Data[] = [
     technology: ["HTML5", "CSS", "Javascript", "Webflow", "Figma"],
   },
   {
-    expID: 3,
+    expID: 4,
     title: "Web Developer & UI/UX Designer",
     date: "2023 - 2023",
     company: "SITCO",
@@ -48,3 +48,24 @@ export const startUp: Data[] = [
     technology: ["Nextjs", "Typescript", "Wordpress", "Figma"],
   },
 ];
+
+
+export const Companies: Data[] = [
+  {
+    expID: 4,
+    title: 'Co-Founder & Full Stack developer',
+    date: '2022 - Present',
+    company: 'NextOne',
+    description: 'As a co-founder & full-stack developer, I guide technical direction, manage software development, & integrate advertising for client success',
+    technology: ['React', 'Nextjs', 'Python', 'Django']
+  },
+  {
+    expID: 5,
+    title: 'Co-Founder & Full Stack developer',
+    date: '2018 - 2021',
+    company: '@deeroAdvert',
+    description: 'As a co-founder & full-stack developer, I guide technical direction, manage software development, & integrate advertising for client success',
+    technology: ['Design', 'UI/UX', 'Animation']
+  }
+
+]

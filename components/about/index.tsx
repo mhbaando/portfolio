@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Card from "../card";
 import { motion } from "framer-motion";
 
@@ -32,12 +31,9 @@ const About = () => {
             <div className="relative rounded-3xl overflow-hidden w-full h-full shadow-lg shadow-indigo-100/30">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/15 via-indigo-500/10 to-violet-500/5 z-10 pointer-events-none" />
               <div className="absolute -inset-1 bg-gradient-to-br from-blue-400/30 via-indigo-400/20 to-violet-400/30 rounded-3xl blur-sm -z-10" />
-              <Image
+              <img
                 src="/me.png"
                 alt="Mohamud Abshir"
-                priority
-                width={1354}
-                height={1250}
                 className="w-full h-full object-cover"
               />
             </div>

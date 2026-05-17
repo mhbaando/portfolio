@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Card from "../card";
 import { motion } from "framer-motion";
-import ProfilImage from "../../public/me.png"
+
 const stats = [
   { label: "Years Exp.", value: "5+" },
   { label: "Projects", value: "20+" },
@@ -29,11 +29,11 @@ const About = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="relative flex"
           >
-            <div className="relative rounded-3xl overflow-hidden w-full flex shadow-lg shadow-indigo-100/30">
+            <div className="relative rounded-3xl overflow-hidden w-full h-full shadow-lg shadow-indigo-100/30">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/15 via-indigo-500/10 to-violet-500/5 z-10 pointer-events-none" />
               <div className="absolute -inset-1 bg-gradient-to-br from-blue-400/30 via-indigo-400/20 to-violet-400/30 rounded-3xl blur-sm -z-10" />
               <Image
-                src={ProfilImage}
+                src="/me.png"
                 alt="Mohamud Abshir"
                 priority
                 width={1354}

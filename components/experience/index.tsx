@@ -1,107 +1,123 @@
+"use client";
+
 import Card from "../card";
 import Tag from "../tag";
-import TitleOrDescription from "../title";
-import { Companies, agencies } from "./data";
+import { Companies, agencies, startUp } from "./data";
+import { motion } from "framer-motion";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
+
+const SectionHeader = ({
+  label,
+  gradient,
+  children,
+}: {
+  label: string;
+  gradient: string;
+  children: React.ReactNode;
+}) => (
+  <div className="mb-12">
+    <span className="text-sm font-semibold tracking-widest uppercase bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+      {label}
+    </span>
+    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mt-2 leading-[1.15]">
+      <span className={gradient}>{children}</span>
+    </h2>
+  </div>
+);
+
+const ExperienceCard = ({
+  data,
+  index,
+}: {
+  data: (typeof agencies)[0];
+  index: number;
+}) => (
+  <motion.div
+    custom={index}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeIn}
+  >
+    <Card className="h-full flex flex-col">
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div className="min-w-0">
+          <h3 className="text-lg font-semibold text-[#1d1d1f] tracking-tight">
+            {data.title}
+          </h3>
+          <p className="text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mt-0.5">
+            {data.company}
+          </p>
+        </div>
+        <span className="text-xs text-[#86868b] bg-[#f5f5f7] px-3 py-1.5 rounded-full whitespace-nowrap shrink-0 border border-[#e8e8ed]">
+          {data.date}
+        </span>
+      </div>
+
+      <p className="text-[#86868b] text-sm leading-relaxed mb-5 flex-1">
+        {data.description}
+      </p>
+
+      <div className="flex flex-wrap gap-2">
+        {data.technology.map((tech, i) => (
+          <Tag key={i} className="text-xs px-3 py-1">
+            {tech}
+          </Tag>
+        ))}
+      </div>
+    </Card>
+  </motion.div>
+);
 
 const Experience = () => {
   return (
-    <>
-      <div className="flex items-center justify-between mt-20 md:mt-[150px] flex-col md:flex-row">
-        <TitleOrDescription
-          text="I helped agencies across the globe"
-          className="text-3xl text-center md:text-left max-w-[350px] mb-14 md:mb-0 leading-relaxed"
-        />
-        <div className="flex flex-col space-y-7">
-          {agencies.map((agency) => (
-            <Card key={agency.expID}>
-              <div className="text-white md:max-w-[488px] md:w-full mt-7 mx-5">
-                <TitleOrDescription text={agency.title} className="text-2xl" />
-                <div className="flex items-center justify-start space-x-10 my-1">
-                  <p className=" text-zinc-500 text-sm">{agency.date}</p>
-                  <p className="text-sm text-zinc-500">{agency.company}</p>
-                </div>
-                <TitleOrDescription
-                  className="leading-loose w-full my-5"
-                  text={agency.description}
-                  whiteWordsCount={5}
-                />
-                <div className="w-full grid grid-cols-2 md:flex md:items-center md:flex-wrap gap-5">
-                  {agency.technology.map((tech, index) => (
-                    <Tag className="rounded-full" key={index}>
-                      <p className="text-sm text-center">{tech}</p>
-                    </Tag>
-                  ))}
-                </div>
-              </div>
-            </Card>
+    <section className="mt-32 md:mt-40">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        <SectionHeader
+          label="Experience"
+          gradient="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent"
+        >
+          I helped agencies across the globe
+        </SectionHeader>
+        <div className="grid md:grid-cols-2 gap-4 mb-28">
+          {agencies.map((item, i) => (
+            <ExperienceCard key={item.expID} data={item} index={i} />
           ))}
         </div>
-      </div>
 
-      <div className="flex items-center justify-between mt-20 md:mt-[150px] flex-col md:flex-row-reverse">
-        <TitleOrDescription
-          text="Projects I've contributed to"
-          className="text-3xl text-center md:text-left max-w-[350px] mb-14 md:mb-0 leading-relaxed"
-        />
-        <div className="flex flex-col space-y-7">
-          {agencies.map((agency) => (
-            <Card key={agency.expID}>
-              <div className="text-white md:max-w-[488px] md:w-full mt-7 mx-5">
-                <TitleOrDescription text={agency.title} className="text-2xl" />
-                <div className="flex items-center justify-start space-x-10 my-1">
-                  <p className=" text-zinc-500 text-sm">{agency.date}</p>
-                  <p className="text-sm text-zinc-500">{agency.company}</p>
-                </div>
-                <TitleOrDescription
-                  className="leading-loose w-full my-5"
-                  text={agency.description}
-                  whiteWordsCount={5}
-                />
-                <div className="w-full grid grid-cols-2 md:flex md:items-center md:flex-wrap gap-5">
-                  {agency.technology.map((tech, index) => (
-                    <Tag className="rounded-full" key={index}>
-                      <p className="text-sm text-center">{tech}</p>
-                    </Tag>
-                  ))}
-                </div>
-              </div>
-            </Card>
+        <SectionHeader
+          label="Projects"
+          gradient="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          Projects I&apos;ve contributed to
+        </SectionHeader>
+        <div className="grid md:grid-cols-2 gap-4 mb-28">
+          {startUp.map((item, i) => (
+            <ExperienceCard key={item.expID} data={item} index={i} />
           ))}
         </div>
-      </div>
 
-      <div className="flex items-center justify-center flex-col mt-20 md:mt-[150px]">
-        <TitleOrDescription
-          text="Even I've have built these startups"
-          className="text-3xl text-center max-w-[350px] leading-relaxed"
-        />
-        <div className="flex items-start justify-between w-full gap-10 mt-10 flex-col md:flex-row">
-          {Companies.map((company) => (
-            <Card key={company.expID}>
-              <div className="text-white md:max-w-[488px] md:w-full mx-5 mt-7">
-                <TitleOrDescription text={company.title} className="text-2xl" />
-                <div className="flex items-center justify-start space-x-10 my-1">
-                  <p className=" text-zinc-500 text-sm">{company.date}</p>
-                  <p className="text-sm text-zinc-500">{company.company}</p>
-                </div>
-                <TitleOrDescription
-                  className="leading-loose w-full my-5"
-                  text={company.description}
-                  whiteWordsCount={5}
-                />
-                <div className="w-full grid grid-cols-2 md:flex md:items-center md:flex-wrap gap-5">
-                  {company.technology.map((tech, index) => (
-                    <Tag className="rounded-full" key={index}>
-                      <p className="text-sm text-center">{tech}</p>
-                    </Tag>
-                  ))}
-                </div>
-              </div>
-            </Card>
+        <SectionHeader
+          label="Ventures"
+          gradient="bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent"
+        >
+          Startups I&apos;ve built
+        </SectionHeader>
+        <div className="grid md:grid-cols-2 gap-4">
+          {Companies.map((item, i) => (
+            <ExperienceCard key={item.expID} data={item} index={i} />
           ))}
         </div>
       </div>
-    </>
+    </section>
   );
 };
 export default Experience;

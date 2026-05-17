@@ -8,14 +8,15 @@ const Tag = ({
   className?: string;
 }) => {
   return (
-    <div
+    <span
       className={cn(
-        "bg-[#19191B] hover:bg-zinc-700 text-white px-5 py-1 transition-all duration-300 ease-in-out",
+        "inline-flex items-center gap-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-[#e8e8ed] px-3.5 py-1.5 text-xs font-medium text-[#6e6e73] hover:border-blue-300 hover:text-blue-600 hover:shadow-sm transition-all duration-200 cursor-default",
         className
       )}
     >
+      <span className="w-1 h-1 rounded-full bg-current opacity-40" />
       {children}
-    </div>
+    </span>
   );
 };
 export default Tag;

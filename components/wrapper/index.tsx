@@ -8,7 +8,7 @@ const Wrapper = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("max-w-[996px] mx-auto px-5 md:px-0", className)}>
+    <div className={cn("max-w-6xl mx-auto px-5 md:px-0", className)}>
       {children}
     </div>
   );
